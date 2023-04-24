@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-
 function PokemonApi() {
   const [data, setData] = useState([]);
   const [forward, setForward] = useState();
   const [back, setBack] = useState();
   const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/');
   const [pokemon, setPokemon] = useState([]);
+  // FetchData fetch the data from the PokemonApi....
   const fetchData = (url) => {
     fetch(url)
       .then((res) => res.json())
@@ -31,6 +31,7 @@ function PokemonApi() {
   };
   return (
     <div>
+      {/* This section is display the retrive data  */}
       {data &&
         data.map((pokemon) => {
           const id = pokemon.url.split('/')[6];
@@ -63,6 +64,7 @@ function PokemonApi() {
           </button>
         )}
       </div>
+      {/* This is for showing the info of specific pokemon when we click the specific pokemon */}
       {pokemon.species && (
         <div>
           <h2>{pokemon.species}</h2>
